@@ -16,7 +16,7 @@ public class Main {
         do {
             System.out.println("1. Mostrar todos los recursos");
             System.out.println("2. Prestar una revista");
-            System.out.println("0. Salir");
+            System.out.println("3. Salir");
             System.out.print("Selecciona una opción: ");
             opcion = scanner.nextInt();
 
@@ -41,7 +41,7 @@ public class Main {
                     }
                     break;
 
-                case 0:
+                case 3:
                     System.out.println("¡Hasta luego!");
                     break;
 
@@ -50,7 +50,7 @@ public class Main {
             }
 
             System.out.println();
-        } while (opcion != 0);
+        } while (opcion != 3);
 
         scanner.close();
     }
