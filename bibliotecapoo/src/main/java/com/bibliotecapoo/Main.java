@@ -1,15 +1,6 @@
 package com.bibliotecapoo;
 
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
-    }
-}
-
-
-
-//HERENCIA
-// Clase base 
+// Clase base
 abstract class RecursoBibliografico {
     protected String titulo;
 
@@ -37,12 +28,13 @@ class Libro extends RecursoBibliografico {
         this.prestado = prestado;
     }
 
+    @Override
     public void mostrarDetalle() {
         System.out.println("Libro:");
-        System.out.println("Título: " + titulo);
-        System.out.println("Autor: " + autor);
-        System.out.println("ISBN: " + ISBN);
-        System.out.println("Prestado: " + (prestado ? "Sí" : "No"));
+        System.out.println("  Título: " + getTitulo());
+        System.out.println("  Autor: " + autor);
+        System.out.println("  ISBN: " + ISBN);
+        System.out.println("  Prestado: " + (prestado ? "Sí" : "No"));
     }
 }
 
@@ -51,7 +43,23 @@ class Revista extends RecursoBibliografico {
     private String ISSN;
     private int anioPublicacion;
     private int ejemplares;
-  //aun por completar
+
+    public Revista(String titulo, String ISSN, int anioPublicacion, int ejemplares) {
+        super(titulo);
+        this.ISSN = ISSN;
+        this.anioPublicacion = anioPublicacion;
+        this.ejemplares = ejemplares;
+    }
+
+    @Override
+    public void mostrarDetalle() {
+        System.out.println("Revista:");
+        System.out.println("  Título: " + getTitulo());
+        System.out.println("  ISSN: " + ISSN);
+        System.out.println("  Año de publicación: " + anioPublicacion);
+        System.out.println("  Ejemplares disponibles: " + ejemplares);
+    }
 }
 
+// Clase Main para probar
 
