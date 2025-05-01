@@ -13,13 +13,21 @@ public class Main {
 
         List<RecursoBibliografico> recursos = new ArrayList<>();
 
-        recursos.add(new Libro("Cien Años de Soledad", "Gabriel García Márquez", "123-456789"));
-        recursos.add(new Libro("1984", "George Orwell", "987-654321"));
-        recursos.add(new Revista("National Geographic", "111-222333", 2024, 50));
-        recursos.add(new Revista("Muy Interesante", "444-555666", 2023, 30));
-        
+         // Agregando 5 libros
+         recursos.add(new Libro("Cien Años de Soledad", "Gabriel García Márquez", "123-456789"));
+         recursos.add(new Libro("1984", "George Orwell", "234-567890"));
+         recursos.add(new Libro("El Principito", "Antoine de Saint-Exupéry", "345-678901"));
+         recursos.add(new Libro("Don Quijote de la Mancha", "Miguel de Cervantes", "456-789012"));
+         recursos.add(new Libro("Fahrenheit 451", "Ray Bradbury", "567-890123"));
+ 
+         // Agregando 3 revistas
+         recursos.add(new Revista("National Geographic", "987-654321", 2024, 50));
+         recursos.add(new Revista("Scientific American", "876-543210", 2023, 30));
+         recursos.add(new Revista("Muy Interesante", "765-432109", 2022, 20));
+ 
         int opcion;
         do {
+            System.out.println("Biblioteca\n");
             System.out.println("1. Mostrar todos los recursos");
             System.out.println("2. Prestar una revista");
             System.out.println("3. Salir");
@@ -28,23 +36,36 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-                    for (RecursoBibliografico recurso : recursos) {
-                        recurso.mostrarDetalles();  
+                System.out.println("\nLIBROS:");
+                for (RecursoBibliografico recurso : recursos) {
+                    if (recurso instanceof Libro) {
+                        recurso.mostrarDetalles();
                     }
+                }
+
+                System.out.println("\nREVISTAS:");
+                for (RecursoBibliografico recurso : recursos) {
+                    if (recurso instanceof Revista) {
+                        recurso.mostrarDetalles();
+                    }
+                }
                     break;
 
                 case 2:
-                    for (RecursoBibliografico recurso : recursos) {
-                        if (recurso instanceof Revista) {
-                            Revista rev = (Revista) recurso;
-                            if (rev.prestar()) {
-                                System.out.println("Revista prestada exitosamente.");
-                            } else {
-                                System.out.println("No hay ejemplares disponibles para prestar.");
-                            }
-                            break; // si solo quieres prestar una
+                boolean prestado = false;
+                for (RecursoBibliografico recurso : recursos) {
+                    if (recurso instanceof Revista) {
+                        Revista rev = (Revista) recurso;
+                        if (!rev.isPrestado() && rev.prestar()) {
+                            System.out.println("Revista prestada exitosamente.");
+                            prestado = true;
+                            break;
                         }
                     }
+                }
+                if (!prestado) {
+                    System.out.println("No hay revistas disponibles para prestar.");
+                }
                     break;
 
                 case 3:
