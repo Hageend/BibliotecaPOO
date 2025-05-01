@@ -132,19 +132,6 @@ Lista de archivos principales en el repositorio:
 ![Listado completo de libros](screenshots/book_list.png)  
 *Visualización de todos los libros registrados*
 
-### Préstamos
-![Pantalla de préstamos](screenshots/loan_screen.png)  
-*Interfaz para registrar nuevos préstamos*
-
-![Historial de préstamos](screenshots/loan_history.png)  
-*Consulta de préstamos activos y finalizados*
-
-### Búsquedas
-![Búsqueda por ISBN](screenshots/search_by_isbn.png)  
-*Ejemplo de búsqueda específica por código ISBN*
-
-![Resultados de búsqueda](screenshots/search_results.png)  
-*Visualización de resultados de búsqueda*
 
 ---
 
