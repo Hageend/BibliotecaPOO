@@ -5,12 +5,10 @@ import java.util.List;
 
 public class Usuario {
     private String nombre;
-    private String dni;
     private List<RecursoBibliografico> recursosPrestados;
     
-    public Usuario(String nombre, String dni) {
+    public Usuario(String nombre) {
         this.nombre = nombre;
-        this.dni = dni;
         this.recursosPrestados = new ArrayList<>();
     }
 
@@ -18,9 +16,40 @@ public class Usuario {
         return nombre;
     }
 
-    /*TODO:* Intenta prestar un recurso; retorna true si tuvo éxito */
+    /** Intenta prestar un recurso; retorna true si tuvo éxito */
+    public boolean prestarRecurso(RecursoBibliografico recurso) {
+        if (recurso instanceof Revista) {
+            Revista revista = (Revista) recurso;
+            if (revista.prestar()) { // Intenta prestar la revista
+                recursosPrestados.add(recurso);
+                return true;
+            }
+        } else if (recurso instanceof Libro) {
+            Libro libro = (Libro) recurso;
+            if (!libro.isPrestado()) {
+                libro.setPrestado(true); // Marca el libro como prestado
+                recursosPrestados.add(recurso);
+                return true;
+            }
+        }
+        return false; 
+    }
 
-    /*TODO:* Devuelve un recurso previamente prestado */
+    /** Devuelve un recurso previamente prestado */
+    public void devolverRecurso(RecursoBibliografico recurso) {
+        if (recursosPrestados.contains(recurso)) {
+            if (recurso instanceof Revista) {
+                Revista revista = (Revista) recurso;
+                revista.devolver();
+            } else if (recurso instanceof Libro) {
+                Libro libro = (Libro) recurso;
+                libro.setPrestado(false); // Marca el libro como no prestado
+            }
+            recursosPrestados.remove(recurso);
+        } else {
+            System.out.println("El recurso no fue prestado por este usuario.");
+        }
+    }
 
     public void listarRecursosPrestados() {
         System.out.println("Recursos prestados de " + nombre + ":");
