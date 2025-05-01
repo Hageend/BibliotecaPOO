@@ -122,14 +122,17 @@ Lista de archivos principales en el repositorio:
 ## Capturas de pantalla
 
 ### Interfaz principal
-![Menú principal del sistema](screenshots/main_menu.png)  
+![menupoo](https://github.com/user-attachments/assets/78838002-ea9e-42c0-ba83-d097240f9ea7)
+
 *Menú interactivo con las opciones disponibles*
 
 ### Gestión de libros
-![Formulario para agregar libros](screenshots/add_book.png)  
+![image](https://github.com/user-attachments/assets/3e377ef8-8fdb-4c0e-b5db-5bfc46dfab87)
+
 *Registro de nuevos libros en el sistema*
 
-![Listado completo de libros](screenshots/book_list.png)  
+![image](https://github.com/user-attachments/assets/2d21de2e-6ebd-4b38-85df-cec1db0da0bd)
+
 *Visualización de todos los libros registrados*
 
 
