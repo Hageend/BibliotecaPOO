@@ -12,6 +12,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         List<RecursoBibliografico> recursos = new ArrayList<>();
+
+        recursos.add(new Libro("Cien Años de Soledad", "Gabriel García Márquez", "123-456789"));
+        recursos.add(new Libro("1984", "George Orwell", "987-654321"));
+        recursos.add(new Revista("National Geographic", "111-222333", 2024, 50));
+        recursos.add(new Revista("Muy Interesante", "444-555666", 2023, 30));
+        
         int opcion;
         do {
             System.out.println("1. Mostrar todos los recursos");
